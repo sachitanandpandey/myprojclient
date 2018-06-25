@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "134515558889",
+    "firebase_url": "https://sdabba-3f51b.firebaseio.com",
+    "project_id": "sdabba-3f51b",
+    "storage_bucket": "sdabba-3f51b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134515558889:android:98529e96ef8b6c01",
+        "android_client_info": {
+          "package_name": "com.b1strudio.sdabba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134515558889-5ug9k7qkig3m0jk18gh6b0oe24re47tu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.b1strudio.sdabba",
+            "certificate_hash": "284d03ab068470096788b11773f03383bb92642f"
+          }
+        },
+        {
+          "client_id": "134515558889-0muig1n0ih6s092n0oikf1s742em5ffe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW4JT43k4dX4Fv0cCDqsydzMglOQNaG_M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134515558889-0muig1n0ih6s092n0oikf1s742em5ffe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
