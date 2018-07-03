@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.icu.text.NumberFormat;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
+import com.b1strudio.sdabba.Common.Common;
 import com.b1strudio.sdabba.Interface.ItemClickListener;
 import com.b1strudio.sdabba.R;
 import com.b1strudio.sdabba.model.Order;
@@ -24,7 +26,8 @@ import java.util.Locale;
  * Created by sachitanand on 27/05/18.
  */
 
-class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    ,View.OnCreateContextMenuListener{
 
     public TextView txt_cart_name,txt_price;
     public ImageView img_cart_count;
@@ -40,11 +43,20 @@ class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickList
         txt_cart_name = (TextView)itemView.findViewById(R.id.cart_item_name);
         txt_price = (TextView)itemView.findViewById(R.id.cart_item_Price);
         img_cart_count = (ImageView)itemView.findViewById(R.id.cart_item_count);
+
+        itemView.setOnCreateContextMenuListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
 
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        contextMenu.setHeaderTitle("Select Action ");
+        contextMenu.add(0,0,getAdapterPosition(), Common.DELETE);
     }
 }
 
@@ -63,6 +75,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder>  {
         LayoutInflater inflater = LayoutInflater.from(context);
         View itemview = inflater.inflate(R.layout.cart_layout,parent,false);
         return new CartViewHolder(itemview);
+
     }
 
     @Override

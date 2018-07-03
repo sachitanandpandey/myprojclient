@@ -79,7 +79,12 @@ public class Home extends AppCompatActivity
         layoutManager = new LinearLayoutManager(this);
         recyler_menu.setLayoutManager(layoutManager);
 
-        loadMenu();
+        if(Common.isConnectedToInternet(this))
+            loadMenu();
+        else {
+            Toast.makeText(this, "Please check Internet Connection.....", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         Intent service = new Intent(Home.this, ListenOrder.class);
         startService(service);
@@ -129,6 +134,8 @@ public class Home extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        if(item.getItemId() == R.id.refresh)
+            loadMenu();
 
         return super.onOptionsItemSelected(item);
     }

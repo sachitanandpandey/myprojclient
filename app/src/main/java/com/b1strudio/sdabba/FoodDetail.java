@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.b1strudio.sdabba.Common.Common;
 import com.b1strudio.sdabba.Database.Database;
 import com.b1strudio.sdabba.model.Food;
 import com.b1strudio.sdabba.model.Order;
@@ -76,7 +77,13 @@ public class FoodDetail extends AppCompatActivity {
 
         if(!foodId.isEmpty())
         {
-            getDetailFood(foodId);
+            if(Common.isConnectedToInternet(getBaseContext()))
+                getDetailFood(foodId);
+            else
+            {
+                Toast.makeText(FoodDetail.this,"Please check Internet Connection.....",Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
 
     }

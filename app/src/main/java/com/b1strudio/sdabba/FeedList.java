@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
+import com.b1strudio.sdabba.Common.Common;
 import com.b1strudio.sdabba.Interface.ItemClickListener;
 import com.b1strudio.sdabba.ViewHolder.FoodViewHolder;
 import com.b1strudio.sdabba.model.Food;
@@ -60,8 +61,13 @@ public class FeedList extends AppCompatActivity {
 
         if (!categoryId.isEmpty() && categoryId != null)
         {
-
-            loadListFood(categoryId);
+            if(Common.isConnectedToInternet(getBaseContext()))
+                loadListFood(categoryId);
+            else
+            {
+                Toast.makeText(FeedList.this,"Please check Internet Connection.....",Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
         materialSearchBar = (MaterialSearchBar)findViewById(R.id.searchBar);
         materialSearchBar.setHint("Enter your food");
